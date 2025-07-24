@@ -1,5 +1,7 @@
 package com.mayur.Job.Application.Portal.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -20,7 +22,8 @@ public class Applicant {
     private String experience;
     private String portfolioUrl;
 
-    @OneToMany(mappedBy = "applicant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "applicant", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Application> applications = new ArrayList<>();
 
     public Applicant() {

@@ -1,5 +1,6 @@
 package com.mayur.Job.Application.Portal.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -13,12 +14,14 @@ public class Application {
     private String coverLetter;
     private String resumeUrl;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "job_id")
+    @JsonBackReference
     private Job job;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "applicant_id")
+    @JsonBackReference
     private Applicant applicant;
 
     public Application() {

@@ -1,5 +1,6 @@
 package com.mayur.Job.Application.Portal.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mayur.Job.Application.Portal.Enum.JobType;
 import jakarta.persistence.*;
 
@@ -28,6 +29,7 @@ public class Job {
     private Company company;
 
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Application> applications = new ArrayList<>();
 
     public Job() {
