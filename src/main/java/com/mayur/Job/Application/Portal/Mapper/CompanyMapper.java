@@ -8,18 +8,16 @@ import java.util.List;
 
 public class CompanyMapper {
     public static CompanyDto toDto(Company company) {
-        return new CompanyDto(
-                company.getCompanyId(),
-                company.getName(),
-                company.getIndustry(),
-                company.getLocation(),
-                company.getSize(),
-                company.getWebsite(),
-                company.getDescription(),
-                company.getFoundedYear(),
-                company.getJobs() != null ?
-                        company.getJobs().stream().map(JobMapper::toDto).toList() :
-                        List.of());
+        CompanyDto companyDto = new CompanyDto();
+        companyDto.setCompanyId(company.getCompanyId());
+        companyDto.setName(company.getName());
+        companyDto.setIndustry(company.getIndustry());
+        companyDto.setLocation(company.getLocation());
+        companyDto.setSize(company.getSize());
+        companyDto.setWebsite(company.getWebsite());
+        companyDto.setDescription(company.getDescription());
+        companyDto.setFoundedYear(company.getFoundedYear());
+        return companyDto;
     }
 
     public static Company toEntity(CompanyDto companyDto) {

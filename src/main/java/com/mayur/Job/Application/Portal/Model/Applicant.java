@@ -20,7 +20,7 @@ public class Applicant {
     private String experience;
     private String portfolioUrl;
 
-    @OneToMany(mappedBy = "applicant")
+    @OneToMany(mappedBy = "applicant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Application> applications = new ArrayList<>();
 
     public Applicant() {

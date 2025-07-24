@@ -3,6 +3,7 @@ package com.mayur.Job.Application.Portal.Mapper;
 import com.mayur.Job.Application.Portal.Dtos.ApplicationDto;
 import com.mayur.Job.Application.Portal.Dtos.JobDto;
 import com.mayur.Job.Application.Portal.Enum.JobType;
+import com.mayur.Job.Application.Portal.Model.Company;
 import com.mayur.Job.Application.Portal.Model.Job;
 
 import java.time.LocalDate;
@@ -22,13 +23,14 @@ public class JobMapper {
                 job.getDatePosted(),
                 job.getDeadline(),
                 job.getExperienceLevel(),
+                job.getCompany() != null ? CompanyMapper.toDto(job.getCompany()) : null,
                 job.getApplications() != null ?
                         job.getApplications().stream().map(ApplicationMapper::toDto).toList() :
                         List.of()
         );
     }
 
-    public static Job job(JobDto jobDto) {
+    public static Job toEntity(JobDto jobDto) {
         Job job = new Job();
         job.setTitle(jobDto.getTitle());
         job.setDescription(jobDto.getDescription());

@@ -20,12 +20,13 @@ public class JobDto {
     private LocalDate datePosted;
     private LocalDate deadline;
     private String experienceLevel;
+    private CompanyDto company;
     private List<ApplicationDto> applications;
 
     public JobDto() {
     }
 
-    public JobDto(Long jobId, String title, String description, String requirements, String location, JobType employmentType, String salaryRange, LocalDate datePosted, LocalDate deadline, String experienceLevel, List<ApplicationDto> applications) {
+    public JobDto(Long jobId, String title, String description, String requirements, String location, JobType employmentType, String salaryRange, LocalDate datePosted, LocalDate deadline, String experienceLevel, CompanyDto company, List<ApplicationDto> applications) {
         this.jobId = jobId;
         this.title = title;
         this.description = description;
@@ -36,6 +37,7 @@ public class JobDto {
         this.datePosted = datePosted;
         this.deadline = deadline;
         this.experienceLevel = experienceLevel;
+        this.company = company;
         this.applications = applications;
     }
 
@@ -117,6 +119,14 @@ public class JobDto {
 
     public void setExperienceLevel(String experienceLevel) {
         this.experienceLevel = experienceLevel;
+    }
+
+    public CompanyDto getCompany() {
+        return company;
+    }
+
+    public void setCompany(CompanyDto company) {
+        this.company = company;
     }
 
     public List<ApplicationDto> getApplications() {

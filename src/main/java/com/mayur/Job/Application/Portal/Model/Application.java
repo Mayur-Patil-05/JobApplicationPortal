@@ -13,11 +13,11 @@ public class Application {
     private String coverLetter;
     private String resumeUrl;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "job_id")
     private Job job;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "applicant_id")
     private Applicant applicant;
 

@@ -32,7 +32,7 @@ public class CompanyDto {
         this.jobs = jobs;
     }
 
-    public CompanyDto(Long companyId, String name, String industry, String location, String location1, int size, String website, String description, int foundedYear, List<Object> list) {
+    public CompanyDto(Long companyId, String name, String industry, String location, int size, String website, String description, int foundedYear) {
     }
 
     public Long getCompanyId() {

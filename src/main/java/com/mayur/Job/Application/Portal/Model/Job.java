@@ -23,11 +23,11 @@ public class Job {
     private LocalDate deadline;
     private String experienceLevel;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "job", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Application> applications = new ArrayList<>();
 
     public Job() {
