@@ -1,30 +1,26 @@
-package com.mayur.Job.Application.Portal.Model;
+package com.mayur.Job.Application.Portal.Dtos;
 
-import jakarta.persistence.*;
+import com.mayur.Job.Application.Portal.Enum.JobType;
+import com.mayur.Job.Application.Portal.Model.Applicant;
+import com.mayur.Job.Application.Portal.Model.Job;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-public class Application {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ApplicationDto {
     private Long applicationId;
     private LocalDateTime appliedAt;
     private String coverLetter;
     private String resumeUrl;
+    private JobDto job;
+    private ApplicantDto applicant;
 
-    @ManyToOne
-    @JoinColumn(name = "job_id")
-    private Job job;
-
-    @ManyToOne
-    @JoinColumn(name = "applicant_id")
-    private Applicant applicant;
-
-    public Application() {
+    public ApplicationDto() {
     }
 
-    public Application(Long applicationId, LocalDateTime appliedAt, String coverLetter, String resumeUrl, Job job, Applicant applicant) {
+    public ApplicationDto(Long applicationId, LocalDateTime appliedAt, String coverLetter, String resumeUrl, JobDto job, ApplicantDto applicant) {
         this.applicationId = applicationId;
         this.appliedAt = appliedAt;
         this.coverLetter = coverLetter;
@@ -65,19 +61,19 @@ public class Application {
         this.resumeUrl = resumeUrl;
     }
 
-    public Job getJob() {
+    public JobDto getJob() {
         return job;
     }
 
-    public void setJob(Job job) {
+    public void setJob(JobDto job) {
         this.job = job;
     }
 
-    public Applicant getApplicant() {
+    public ApplicantDto getApplicant() {
         return applicant;
     }
 
-    public void setApplicant(Applicant applicant) {
+    public void setApplicant(ApplicantDto applicant) {
         this.applicant = applicant;
     }
 }
