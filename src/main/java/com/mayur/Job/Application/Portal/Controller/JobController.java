@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/jobs")
 public class JobController {
@@ -28,5 +30,21 @@ public class JobController {
     @GetMapping("/{jobId}")
     public ResponseEntity<JobDto> getJobById(@PathVariable Long jobId) {
         return new ResponseEntity<>(jobService.getJobById(jobId), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<JobDto>> getAll() {
+        return new ResponseEntity<>(jobService.getAllJobs(), HttpStatus.OK);
+    }
+
+    @PutMapping("/{jobId}")
+    public ResponseEntity<JobDto> updateJob(@PathVariable Long jobId, @RequestBody JobDto jobDto) {
+        return new ResponseEntity<>(jobService.updateJob(jobId, jobDto), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{jobId}")
+    public ResponseEntity<Void> deleteJob(@PathVariable Long jobId) {
+        jobService.deleteJob(jobId);
+        return ResponseEntity.noContent().build();
     }
 }

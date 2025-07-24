@@ -18,7 +18,7 @@ public class Company {
     private String description;
     private int foundedYear;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Job> jobs = new ArrayList<>();
 
     public Company() {
