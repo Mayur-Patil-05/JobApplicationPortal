@@ -1,13 +1,13 @@
 package com.mayur.Job.Application.Portal.Mapper;
 
 import com.mayur.Job.Application.Portal.Dtos.CompanyDto;
-import com.mayur.Job.Application.Portal.Dtos.JobDto;
 import com.mayur.Job.Application.Portal.Model.Company;
 
-import java.util.List;
-
 public class CompanyMapper {
+
     public static CompanyDto toDto(Company company) {
+        if (company == null) return null;
+
         CompanyDto companyDto = new CompanyDto();
         companyDto.setCompanyId(company.getCompanyId());
         companyDto.setName(company.getName());
@@ -21,6 +21,8 @@ public class CompanyMapper {
     }
 
     public static Company toEntity(CompanyDto companyDto) {
+        if (companyDto == null) return null;
+
         Company company = new Company();
         company.setName(companyDto.getName());
         company.setIndustry(companyDto.getIndustry());

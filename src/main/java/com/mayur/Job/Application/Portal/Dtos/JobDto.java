@@ -1,12 +1,8 @@
 package com.mayur.Job.Application.Portal.Dtos;
 
 import com.mayur.Job.Application.Portal.Enum.JobType;
-import com.mayur.Job.Application.Portal.Model.Application;
-import com.mayur.Job.Application.Portal.Model.Company;
-import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class JobDto {

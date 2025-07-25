@@ -1,9 +1,5 @@
 package com.mayur.Job.Application.Portal.Dtos;
 
-import com.mayur.Job.Application.Portal.Model.Job;
-import jakarta.persistence.OneToMany;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyDto {

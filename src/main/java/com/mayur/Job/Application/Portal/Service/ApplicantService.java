@@ -5,10 +5,8 @@ import com.mayur.Job.Application.Portal.Exception.ApplicantNotFoundException;
 import com.mayur.Job.Application.Portal.Mapper.ApplicantMapper;
 import com.mayur.Job.Application.Portal.Model.Applicant;
 import com.mayur.Job.Application.Portal.Repository.ApplicantRepository;
-import com.mayur.Job.Application.Portal.Repository.ApplicationRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,7 +39,7 @@ public class ApplicantService {
     }
 
     @Transactional
-    public ApplicantDto updateApplicant(Long applicantId, ApplicantDto applicantDto) throws ApplicantNotFoundException{
+    public ApplicantDto updateApplicant(Long applicantId, ApplicantDto applicantDto) throws ApplicantNotFoundException {
         Applicant applicant = applicantRepository.findById(applicantId)
                 .orElseThrow(() -> new ApplicantNotFoundException("Applicant not found"));
 
@@ -78,8 +76,8 @@ public class ApplicantService {
         return ApplicantMapper.toDto(applicant);
     }
 
-    public void deleteApplicant(Long applicantId) throws ApplicantNotFoundException{
-        if (!applicantRepository.existsById(applicantId)){
+    public void deleteApplicant(Long applicantId) throws ApplicantNotFoundException {
+        if (!applicantRepository.existsById(applicantId)) {
             throw new ApplicantNotFoundException("Applicant not found");
         }
         applicantRepository.deleteById(applicantId);

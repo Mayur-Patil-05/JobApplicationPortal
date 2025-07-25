@@ -1,12 +1,5 @@
 package com.mayur.Job.Application.Portal.Dtos;
 
-import com.mayur.Job.Application.Portal.Enum.JobType;
-import com.mayur.Job.Application.Portal.Model.Applicant;
-import com.mayur.Job.Application.Portal.Model.Job;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ApplicationDto {

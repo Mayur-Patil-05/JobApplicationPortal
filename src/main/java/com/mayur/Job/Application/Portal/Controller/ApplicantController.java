@@ -20,27 +20,27 @@ public class ApplicantController {
     }
 
     @PostMapping
-    public ResponseEntity<ApplicantDto> add(@RequestBody ApplicantDto applicantDto){
+    public ResponseEntity<ApplicantDto> add(@RequestBody ApplicantDto applicantDto) {
         return new ResponseEntity<>(applicantService.addApplicant(applicantDto), HttpStatus.CREATED);
     }
 
     @GetMapping("/{applicantId}")
-    public ResponseEntity<ApplicantDto> getById(@PathVariable Long applicantId){
+    public ResponseEntity<ApplicantDto> getById(@PathVariable Long applicantId) {
         return new ResponseEntity<>(applicantService.getApplicantByID(applicantId), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<ApplicantDto>> getAll(){
+    public ResponseEntity<List<ApplicantDto>> getAll() {
         return new ResponseEntity<>(applicantService.getAllApplicant(), HttpStatus.OK);
     }
 
     @PutMapping("/{applicantId}")
-    public ResponseEntity<ApplicantDto> update(@PathVariable Long applicantId, @RequestBody ApplicantDto applicantDto){
-        return new ResponseEntity<>(applicantService.updateApplicant(applicantId,applicantDto), HttpStatus.CREATED);
+    public ResponseEntity<ApplicantDto> update(@PathVariable Long applicantId, @RequestBody ApplicantDto applicantDto) {
+        return new ResponseEntity<>(applicantService.updateApplicant(applicantId, applicantDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{applicantId}")
-    public ResponseEntity<Void> delete(@PathVariable Long applicantId){
+    public ResponseEntity<Void> delete(@PathVariable Long applicantId) {
         applicantService.deleteApplicant(applicantId);
         return ResponseEntity.noContent().build();
     }

@@ -1,7 +1,6 @@
 package com.mayur.Job.Application.Portal.Service;
 
 import com.mayur.Job.Application.Portal.Dtos.JobDto;
-import com.mayur.Job.Application.Portal.Enum.JobType;
 import com.mayur.Job.Application.Portal.Exception.CompanyNotFoundException;
 import com.mayur.Job.Application.Portal.Exception.JobNotFoundException;
 import com.mayur.Job.Application.Portal.Mapper.JobMapper;
@@ -9,15 +8,11 @@ import com.mayur.Job.Application.Portal.Model.Company;
 import com.mayur.Job.Application.Portal.Model.Job;
 import com.mayur.Job.Application.Portal.Repository.CompanyRepository;
 import com.mayur.Job.Application.Portal.Repository.JobRepository;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class JobService {

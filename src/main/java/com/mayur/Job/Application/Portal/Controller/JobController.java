@@ -1,9 +1,6 @@
 package com.mayur.Job.Application.Portal.Controller;
 
 import com.mayur.Job.Application.Portal.Dtos.JobDto;
-import com.mayur.Job.Application.Portal.Exception.JobNotFoundException;
-import com.mayur.Job.Application.Portal.Mapper.JobMapper;
-import com.mayur.Job.Application.Portal.Model.Job;
 import com.mayur.Job.Application.Portal.Service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

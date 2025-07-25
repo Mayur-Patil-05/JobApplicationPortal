@@ -1,13 +1,14 @@
 package com.mayur.Job.Application.Portal.Mapper;
 
 import com.mayur.Job.Application.Portal.Dtos.ApplicantDto;
-import com.mayur.Job.Application.Portal.Dtos.ApplicationDto;
 import com.mayur.Job.Application.Portal.Model.Applicant;
 
 import java.util.List;
 
 public class ApplicantMapper {
     public static ApplicantDto toDto(Applicant applicant) {
+        if (applicant == null) return null;
+
         return new ApplicantDto(
                 applicant.getApplicantId(),
                 applicant.getFirstName(),
@@ -20,13 +21,36 @@ public class ApplicantMapper {
                 applicant.getEducation(),
                 applicant.getExperience(),
                 applicant.getPortfolioUrl(),
-                applicant.getApplications() != null ?
-                        applicant.getApplications().stream().map(ApplicationMapper::toDto).toList() :
-                        List.of()
+                applicant.getApplications() != null
+                        ? applicant.getApplications().stream()
+                        .map(ApplicationMapper::toShallowDto)
+                        .toList()
+                        : List.of()
+        );
+    }
+
+    public static ApplicantDto toShallowDto(Applicant applicant) {
+        if (applicant == null) return null;
+
+        return new ApplicantDto(
+                applicant.getApplicantId(),
+                applicant.getFirstName(),
+                applicant.getLastName(),
+                applicant.getEmail(),
+                applicant.getPhoneNumber(),
+                applicant.getResumeUrl(),
+                applicant.getLinkedinProfile(),
+                applicant.getSkills(),
+                applicant.getEducation(),
+                applicant.getExperience(),
+                applicant.getPortfolioUrl(),
+                null
         );
     }
 
     public static Applicant toEntity(ApplicantDto applicantDto) {
+        if (applicantDto == null) return null;
+
         Applicant applicant = new Applicant();
         applicant.setFirstName(applicantDto.getFirstName());
         applicant.setLastName(applicantDto.getLastName());
